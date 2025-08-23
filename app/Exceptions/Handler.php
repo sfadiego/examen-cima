@@ -2,7 +2,13 @@
 
 namespace App\Exceptions;
 
+use App\Enums\HttpEnum;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,6 +49,27 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+
+        $this->renderable(function (ModelNotFoundException $e, Request $request) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "status" => "error",
+                    'message' => 'El recurso no existe',
+                    "data" => null,
+                ], HttpEnum::NotFound->value);
+            }
+        });
+
+        $this->renderable(function (NotFoundHttpException $e, Request $request) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "status" => "error",
+                    'message' => 'Recurso no encontrado',
+                    "data" => null,
+                ], HttpEnum::NotFound->value);
+            }
+        });
+
         $this->reportable(function (Throwable $e) {
             //
         });
