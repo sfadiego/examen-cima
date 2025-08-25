@@ -1,5 +1,25 @@
+<script setup>
+import { computed, provide, ref } from 'vue';
+import { serviceIndexNotes } from '@/services/serviceNotes';
+import CardContainer from './CardContainer.vue';
+import NoteCardForm from './forms/NoteCardForm.vue';
+
+const { data, isLoading, isError } = serviceIndexNotes();
+const settedNotes = computed(() => (data.value ?? []).filter(n => n.setted))
+const unsettedNotes = computed(() => (data.value ?? []).filter(n => !n.setted))
+const modal = ref(false);
+const selectedNote = ref(null)
+
+provide('selectedNote', selectedNote);
+provide('modal', modal);
+const nuevaNota = () => {
+    modal.value = true;
+    selectedNote.value = null;
+}
+</script>
+
 <template>
-    <q-btn @click="modal = true" icon="add" ico color="primary" label="Nueva Nota" style="margin-bottom: 20px;" />
+    <q-btn @click="nuevaNota" icon="add" ico color="primary" label="Nueva Nota" style="margin-bottom: 20px;" />
     <q-dialog v-model="modal" persistent>
         <NoteCardForm v-model:close="modal" />
     </q-dialog>
@@ -15,16 +35,3 @@
     </div>
 
 </template>
-
-<script setup>
-import { computed, ref } from 'vue';
-import { serviceIndexNotes } from '@/services/serviceNotes';
-import CardContainer from './CardContainer.vue';
-import NoteCardForm from './forms/NoteCardForm.vue';
-
-
-const { data, isLoading, isError } = serviceIndexNotes();
-const settedNotes = computed(() => (data.value ?? []).filter(n => n.setted))
-const unsettedNotes = computed(() => (data.value ?? []).filter(n => !n.setted))
-const modal = ref(false);
-</script>

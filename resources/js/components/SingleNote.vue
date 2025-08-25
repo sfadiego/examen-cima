@@ -1,18 +1,14 @@
 <template>
     <q-card-section class="card-note">
         <div class="row">
-            <div class="col-1">
-                <q-icon v-if="setted === 1" name="push_pin" class="absolute top-0 right-0 q-mr-sm q-mt-sm" />
+            <div class="col text-left text-h6">
+                <q-icon v-if="setted === 1" name="push_pin" class="" />
+                {{ title }}
             </div>
-            <div class="col-10">
-                <div class="text-h6">
-                    {{ title }}
-                </div>
+            <div class="col col-md-auto">
+                <q-icon name="delete" @click="deleteNote" class=" top-0 right-0 q-mr-sm q-mt-sm btn btn-delete " />
+                <q-icon name="edit_square" @click="editNote" class=" top-0 right-0 q-mr-sm q-mt-sm btn btn-edit " />
             </div>
-            <div class="col-1">
-                <q-icon name="delete" @click="deleteNote" class="absolute top-0 right-0 q-mr-sm q-mt-sm btn-delete " />
-            </div>
-
         </div>
     </q-card-section>
     <q-separator />
@@ -22,21 +18,31 @@
 </template>
 
 <script setup lang="ts">
-import { serviceDeleteNote, serviceIndexNotes } from '@/services/serviceNotes';
+import { serviceDeleteNote } from '@/services/serviceNotes';
+import { Note } from '@/types/Note';
 import { useQueryClient } from '@tanstack/vue-query';
-import { ref } from 'vue';
+import { inject, provide, Ref, ref } from 'vue';
 
-const props = defineProps<{
-    id: Number,
-    title: String,
-    content: String,
-    state?: String,
-    setted?: Number
-}>()
+const props = defineProps<Note>()
 
 const queryClient = useQueryClient()
 const mutationDelete = serviceDeleteNote(props.id);
 const warningMsg = ref('¿Está seguro de que desea eliminar esta nota?');
+
+const modal = inject<Ref<boolean>>('modal')
+const selectedNote = inject<Ref<Note | null>>('selectedNote')
+
+const editNote = () => {
+    if (selectedNote && modal) {
+        selectedNote.value = {
+            id: props.id,
+            title: props.title,
+            content: props.content,
+            setted: props.setted ?? 0
+        }
+        modal.value = true
+    }
+};
 
 const deleteNote = async () => {
     if (window.confirm(warningMsg.value)) {
@@ -56,12 +62,20 @@ const deleteNote = async () => {
 </script>
 
 <style scoped lang="scss">
-.btn-delete {
-    border: 1px solid $primary;
-    background-color: red;
-    color: white;
+.btn {
     border-radius: 1px;
     padding: 5px;
     margin: 5px;
+    color: white;
+    border: 1px solid $primary;
+
+}
+
+.btn.btn-delete {
+    background-color: red;
+}
+
+.btn.btn-edit {
+    background-color: $primary !important;
 }
 </style>

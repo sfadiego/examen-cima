@@ -38,6 +38,7 @@ class NotesController extends Controller
             'title'   => $request->input('title', $nota->title),
             'content' => $request->input('content', $nota->content),
             'state'   => $request->input('state', $nota->state),
+            'setted' =>  $request->input('setted', 0),
             'updated_at' => now(),
         ]);
 

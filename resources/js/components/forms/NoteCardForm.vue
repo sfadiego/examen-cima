@@ -8,7 +8,7 @@
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-            <FormKit id="frm" validation-visibility="submit" type="form" class="row q-gutter-md"
+            <FormKit v-model="form" id="frm" validation-visibility="submit" type="form" class="row q-gutter-md"
                 @submit="submitHandler">
                 <FormKit validation="required" type="text" name="title" class="col-12" label="Titulo" />
                 <FormKit validation="required" type="text" name="content" class="col-12" label="Contenido" />
@@ -21,25 +21,50 @@
 
 <script setup>
 import { reset } from '@formkit/vue'
-import { serviceStoreNotes } from '@/services/serviceNotes';
+import { serviceStoreNotes, serviceUpdateNote } from '@/services/serviceNotes';
 import { useQueryClient } from '@tanstack/vue-query'
+import { computed, reactive, watch } from 'vue';
+import { inject } from 'vue';
+import { handleSubmit } from '@/hooks/handleSubmit';
 
 const props = defineProps({ close: Boolean })
 const emit = defineEmits(['update:close'])
-const mutation = serviceStoreNotes();
-const queryClient = useQueryClient()
-const submitHandler = async (data) => {
-    const submitData = { ...data, state: 'active' };
-    const { status, data: { message, errors } } = await mutation.mutateAsync(submitData);
-    if (status !== 201) {
-        console.log("error", errors);
-        return;
+const form = reactive({
+    title: '',
+    content: '',
+    setted: false,
+    state: 'active'
+})
 
+const selectedNote = inject('selectedNote');
+const isEdit = computed(() => !!form.id)
+
+watch(selectedNote, (item) => {
+    if (item) {
+        form.id = item.id;
+        form.title = item.title;
+        form.content = item.content;
+        form.setted = item.setted === 1 || item.setted === true
     }
+}, { immediate: true })
 
-    window.alert(message)
-    reset('frm')
-    emit('update:close', false)
-    queryClient.invalidateQueries({ queryKey: ['notes'] })
+
+const mutation = serviceStoreNotes();
+const mutationUpdate = serviceUpdateNote(form.id);
+const queryClient = useQueryClient()
+const { onSubmit } = handleSubmit({
+    mutateAsync: isEdit.value ? mutationUpdate.mutateAsync : mutation.mutateAsync,
+    onSuccess: (data) => {
+        const { status, message, data: resp } = data;
+        emit('update:close', false)
+        if (!isEdit.value) reset('frm')
+
+        queryClient.invalidateQueries({ queryKey: [`notes`] })
+    },
+});
+
+const submitHandler = async (data) => {
+    let submitData = { ...data };
+    onSubmit(submitData);
 }
 </script>
