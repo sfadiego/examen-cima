@@ -8,36 +8,48 @@ importers:
 
   .:
     dependencies:
+      '@formkit/themes':
+        specifier: ^1.6.9
+        version: 1.6.9
       '@quasar/extras':
         specifier: ^1.17.0
         version: 1.17.0
+      '@tanstack/vue-query':
+        specifier: ^5.85.5
+        version: 5.85.5(vue@3.5.19(typescript@5.9.2))
       quasar:
         specifier: ^2.18.2
         version: 2.18.2
       vue:
-        specifier: '3'
-        version: 3.5.19
+        specifier: ^3.5.19
+        version: 3.5.19(typescript@5.9.2)
       vue-router:
         specifier: ^4.5.1
-        version: 4.5.1(vue@3.5.19)
+        version: 4.5.1(vue@3.5.19(typescript@5.9.2))
     devDependencies:
+      '@formkit/vue':
+        specifier: ^1.6.9
+        version: 1.6.9(vue@3.5.19(typescript@5.9.2))
       '@quasar/vite-plugin':
         specifier: ^1.10.0
-        version: 1.10.0(@vitejs/plugin-vue@6.0.1(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19))(quasar@2.18.2)(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19)
+        version: 1.10.0(@vitejs/plugin-vue@6.0.1(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2)))(quasar@2.18.2)(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2))
+      '@types/node':
+        specifier: ^24.3.0
+        version: 24.3.0
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
-        version: 6.0.1(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19)
+        version: 6.0.1(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2))
       axios:
-        specifier: ^1.1.2
+        specifier: ^1.11.0
         version: 1.11.0
       laravel-vite-plugin:
-        specifier: ^0.7.2
-        version: 0.7.8(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))
+        specifier: ^0.7.8
+        version: 0.7.8(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))
       lodash:
-        specifier: ^4.17.19
+        specifier: ^4.17.21
         version: 4.17.21
       postcss:
-        specifier: ^8.1.14
+        specifier: ^8.5.6
         version: 8.5.6
       sass:
         specifier: ^1.90.0
@@ -45,9 +57,15 @@ importers:
       sass-embedded:
         specifier: ^1.90.0
         version: 1.90.0
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
       vite:
         specifier: ^7.1.3
-        version: 7.1.3(sass-embedded@1.90.0)(sass@1.90.0)
+        version: 7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0)
+      vue-tsc:
+        specifier: ^3.0.6
+        version: 3.0.6(typescript@5.9.2)
 
 packages:
 
@@ -226,6 +244,49 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@formkit/core@1.6.9':
+    resolution: {integrity: sha512-Zb5OkYKMf7Rp1pd4iUMv0TJQvfgl1PdKtRRQoGiTA0XIFLB/7tcRMr1wc5isA2JS+hllfxMTh3RWF8N+64fTMg==}
+
+  '@formkit/dev@1.6.9':
+    resolution: {integrity: sha512-4ueBpZAOiKr8/LZnq3mNePCX4ZB1j1JuJscBEwugWMnDeDwCNo5XWBrng1ER/LlitTRQ3mtEBNy2Qpm0yAHlwA==}
+
+  '@formkit/i18n@1.6.9':
+    resolution: {integrity: sha512-8NA5bALlspCBEwInuZVgBqgQr0lDfproZdmbs2LciQpGi2B15u74JCjAkEwaKlMs+qgf/ds3QcIgUv2ztyyVEA==}
+
+  '@formkit/inputs@1.6.9':
+    resolution: {integrity: sha512-k9gjV1e5F87NxSnu13JtKb30XYt6ndx2KGHZG8Xz0etoP75yJlMaeROHHPvlxdy2gZM6qH7Ex4it51W74Wh2Eg==}
+
+  '@formkit/observer@1.6.9':
+    resolution: {integrity: sha512-p3MCmzp6jwzXIuV3gI9uTJTJl+sN5689C7qf7gdrS8jb1fbX1snKiTyWA8FXOrBXu+ne5z/sA/yBWqYFTSLy8A==}
+
+  '@formkit/rules@1.6.9':
+    resolution: {integrity: sha512-5Vu3JACKyws1kw02qF+024WkS7L9kYZ0lmdSpsaTqg5Wf7+InsxWXFYaG6vCzqIh4Lk9NeffIzq/xyGpGxf5uQ==}
+
+  '@formkit/themes@1.6.9':
+    resolution: {integrity: sha512-/UD+MehQEdcCEadt73eIBGGAMEK8ODN0yq9r9299WvQxIELCOP2MbcxuWCV/g2Vd15Xhl8YFdn4KCzQi4X7QXA==}
+    peerDependencies:
+      tailwindcss: ^3.2.0
+      unocss: 0.x.x
+      windicss: ^3.0.0
+    peerDependenciesMeta:
+      tailwindcss:
+        optional: true
+      unocss:
+        optional: true
+      windicss:
+        optional: true
+
+  '@formkit/utils@1.6.9':
+    resolution: {integrity: sha512-vSFhB/Sm/A+SdwKdBi4WhJcdbePqSYRaB878Ol9HL8roTmmmgQpThvkv6EjLM6aRRP27Il5rS8XtIAIeh8vdTA==}
+
+  '@formkit/validation@1.6.9':
+    resolution: {integrity: sha512-9PGwN0ZDJt3hsrMyaL8KTG3diSQDik1OGogVG6/nFcZhWUycpeamFfXZSQ5pfzmwnvrTHsvyT0FtKitUnWWuPA==}
+
+  '@formkit/vue@1.6.9':
+    resolution: {integrity: sha512-WrjAtEsKnFJzxQuATWsWKMpTAyJE15PUmRh9hwEAqgTDy2yMog1gxqxfZv3rEAdIdgXNp08tWmRVnQgDIF3vAQ==}
+    peerDependencies:
+      vue: ^3.4.0
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -427,8 +488,27 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@tanstack/match-sorter-utils@8.19.4':
+    resolution: {integrity: sha512-Wo1iKt2b9OT7d+YGhvEPD3DXvPv2etTusIMhMUoG7fbhmxcXCtIjJDEygy91Y2JFlwGyjqiBPRozme7UD8hoqg==}
+    engines: {node: '>=12'}
+
+  '@tanstack/query-core@5.85.5':
+    resolution: {integrity: sha512-KO0WTob4JEApv69iYp1eGvfMSUkgw//IpMnq+//cORBzXf0smyRwPLrUvEe5qtAEGjwZTXrjxg+oJNP/C00t6w==}
+
+  '@tanstack/vue-query@5.85.5':
+    resolution: {integrity: sha512-f2gT08SakfnyDGW5bgwsyjqnl2pgacvNWIpyj9UchjTo1JAEYMpMBT26TzhYgRL6il2wnunxnii7DHk1Kcj9Og==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.2
+      vue: ^2.6.0 || ^3.3.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/node@24.3.0':
+    resolution: {integrity: sha512-aPTXCrfwnDLj4VvXrm+UUCQjNEvJgNA8s5F1cvwQU+3KNltTOkBm1j30uNLyqqPNe7gE3KFzImYoZEfLhp4Yow==}
 
   '@vitejs/plugin-vue@6.0.1':
     resolution: {integrity: sha512-+MaE752hU0wfPFJEUAIxqw18+20euHHdxVtMvbFcOEpjEyfqXH/5DCoTHiVJ0J29EhTJdoTkjEv5YBKU9dnoTw==}
@@ -436,6 +516,15 @@ packages:
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
       vue: ^3.2.25
+
+  '@volar/language-core@2.4.23':
+    resolution: {integrity: sha512-hEEd5ET/oSmBC6pi1j6NaNYRWoAiDhINbT8rmwtINugR39loROSlufGdYMF9TaKGfz+ViGs1Idi3mAhnuPcoGQ==}
+
+  '@volar/source-map@2.4.23':
+    resolution: {integrity: sha512-Z1Uc8IB57Lm6k7q6KIDu/p+JWtf3xsXJqAX/5r18hYOTpJyBn0KXUR8oTJ4WFYOcDzWC9n3IflGgHowx6U6z9Q==}
+
+  '@volar/typescript@2.4.23':
+    resolution: {integrity: sha512-lAB5zJghWxVPqfcStmAP1ZqQacMpe90UrP5RJ3arDyrhy4aCUQqmxPPLB2PWDKugvylmO41ljK7vZ+t6INMTag==}
 
   '@vue/compiler-core@3.5.19':
     resolution: {integrity: sha512-/afpyvlkrSNYbPo94Qu8GtIOWS+g5TRdOvs6XZNw6pWQQmj5pBgSZvEPOIZlqWq0YvoUhDDQaQ2TnzuJdOV4hA==}
@@ -449,8 +538,19 @@ packages:
   '@vue/compiler-ssr@3.5.19':
     resolution: {integrity: sha512-/wx0VZtkWOPdiQLWPeQeqpHWR/LuNC7bHfSX7OayBTtUy8wur6vT6EQIX6Et86aED6J+y8tTw43qo2uoqGg5sw==}
 
+  '@vue/compiler-vue2@2.7.16':
+    resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
+
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
+
+  '@vue/language-core@3.0.6':
+    resolution: {integrity: sha512-e2RRzYWm+qGm8apUHW1wA5RQxzNhkqbbKdbKhiDUcmMrNAZGyM8aTiL3UrTqkaFI5s7wJRGGrp4u3jgusuBp2A==}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@vue/reactivity@3.5.19':
     resolution: {integrity: sha512-4bueZg2qs5MSsK2dQk3sssV0cfvxb/QZntTC8v7J448GLgmfPkQ+27aDjlt40+XFqOwUq5yRxK5uQh14Fc9eVA==}
@@ -468,6 +568,9 @@ packages:
 
   '@vue/shared@3.5.19':
     resolution: {integrity: sha512-IhXCOn08wgKrLQxRFKKlSacWg4Goi1BolrdEeLYn6tgHjJNXVrWJ5nzoxZqNwl5p88aLlQ8LOaoMa3AYvaKJ/Q==}
+
+  alien-signals@2.0.7:
+    resolution: {integrity: sha512-wE7y3jmYeb0+h6mr5BOovuqhFv22O/MV9j5p0ndJsa7z1zJNPGQ4ph5pQk/kTTCWRC3xsA4SmtwmkzQO+7NCNg==}
 
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -499,6 +602,9 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  de-indent@1.0.2:
+    resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -603,6 +709,10 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+  he@1.2.0:
+    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
+
   immutable@5.1.3:
     resolution: {integrity: sha512-+chQdDfvscSF1SJqv2gn4SRO2ZyS3xL3r7IW/wWEEzrzLisnOlKiQu5ytC/BVNcS15C39WT2Hg/bjKjDMcu+zg==}
 
@@ -646,6 +756,9 @@ packages:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
 
+  muggle-string@0.4.1:
+    resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
+
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -653,6 +766,9 @@ packages:
 
   node-addon-api@7.1.1:
     resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
+
+  path-browserify@1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -679,6 +795,9 @@ packages:
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
+
+  remove-accents@0.5.0:
+    resolution: {integrity: sha512-8g3/Otx1eJaVD12e31UbJj1YzdtVvzH85HV7t+9MJYk/u3XmkOUJ5Ys9wQrf9PCPK8+xn4ymzqYCiZl6QWKn+A==}
 
   rollup@4.48.0:
     resolution: {integrity: sha512-BXHRqK1vyt9XVSEHZ9y7xdYtuYbwVod2mLwOMFP7t/Eqoc1pHRlG/WdV2qNeNvZHRQdLedaFycljaYYM96RqJQ==}
@@ -829,6 +948,14 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  undici-types@7.10.0:
+    resolution: {integrity: sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag==}
+
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
 
@@ -875,10 +1002,30 @@ packages:
       yaml:
         optional: true
 
+  vscode-uri@3.1.0:
+    resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
+
+  vue-demi@0.14.10:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
+    engines: {node: '>=12'}
+    hasBin: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
   vue-router@4.5.1:
     resolution: {integrity: sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue-tsc@3.0.6:
+    resolution: {integrity: sha512-Tbs8Whd43R2e2nxez4WXPvvdjGbW24rOSgRhLOHXzWiT4pcP4G7KeWh0YCn18rF4bVwv7tggLLZ6MJnO6jXPBg==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=5.0.0'
 
   vue@3.5.19:
     resolution: {integrity: sha512-ZRh0HTmw6KChRYWgN8Ox/wi7VhpuGlvMPrHjIsdRbzKNgECFLzy+dKL5z9yGaBSjCpmcfJCbh3I1tNSRmBz2tg==}
@@ -983,6 +1130,66 @@ snapshots:
   '@esbuild/win32-x64@0.25.9':
     optional: true
 
+  '@formkit/core@1.6.9':
+    dependencies:
+      '@formkit/utils': 1.6.9
+
+  '@formkit/dev@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/utils': 1.6.9
+
+  '@formkit/i18n@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/utils': 1.6.9
+      '@formkit/validation': 1.6.9
+
+  '@formkit/inputs@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/utils': 1.6.9
+
+  '@formkit/observer@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/utils': 1.6.9
+
+  '@formkit/rules@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/utils': 1.6.9
+      '@formkit/validation': 1.6.9
+
+  '@formkit/themes@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+
+  '@formkit/utils@1.6.9': {}
+
+  '@formkit/validation@1.6.9':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/observer': 1.6.9
+      '@formkit/utils': 1.6.9
+
+  '@formkit/vue@1.6.9(vue@3.5.19(typescript@5.9.2))':
+    dependencies:
+      '@formkit/core': 1.6.9
+      '@formkit/dev': 1.6.9
+      '@formkit/i18n': 1.6.9
+      '@formkit/inputs': 1.6.9
+      '@formkit/observer': 1.6.9
+      '@formkit/rules': 1.6.9
+      '@formkit/themes': 1.6.9
+      '@formkit/utils': 1.6.9
+      '@formkit/validation': 1.6.9
+      vue: 3.5.19(typescript@5.9.2)
+    transitivePeerDependencies:
+      - tailwindcss
+      - unocss
+      - windicss
+
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
   '@parcel/watcher-android-arm64@2.5.1':
@@ -1048,12 +1255,12 @@ snapshots:
 
   '@quasar/extras@1.17.0': {}
 
-  '@quasar/vite-plugin@1.10.0(@vitejs/plugin-vue@6.0.1(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19))(quasar@2.18.2)(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19)':
+  '@quasar/vite-plugin@1.10.0(@vitejs/plugin-vue@6.0.1(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2)))(quasar@2.18.2)(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2))':
     dependencies:
-      '@vitejs/plugin-vue': 6.0.1(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19)
+      '@vitejs/plugin-vue': 6.0.1(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2))
       quasar: 2.18.2
-      vite: 7.1.3(sass-embedded@1.90.0)(sass@1.90.0)
-      vue: 3.5.19
+      vite: 7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0)
+      vue: 3.5.19(typescript@5.9.2)
 
   '@rolldown/pluginutils@1.0.0-beta.29': {}
 
@@ -1117,13 +1324,43 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.48.0':
     optional: true
 
+  '@tanstack/match-sorter-utils@8.19.4':
+    dependencies:
+      remove-accents: 0.5.0
+
+  '@tanstack/query-core@5.85.5': {}
+
+  '@tanstack/vue-query@5.85.5(vue@3.5.19(typescript@5.9.2))':
+    dependencies:
+      '@tanstack/match-sorter-utils': 8.19.4
+      '@tanstack/query-core': 5.85.5
+      '@vue/devtools-api': 6.6.4
+      vue: 3.5.19(typescript@5.9.2)
+      vue-demi: 0.14.10(vue@3.5.19(typescript@5.9.2))
+
   '@types/estree@1.0.8': {}
 
-  '@vitejs/plugin-vue@6.0.1(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19)':
+  '@types/node@24.3.0':
+    dependencies:
+      undici-types: 7.10.0
+
+  '@vitejs/plugin-vue@6.0.1(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0))(vue@3.5.19(typescript@5.9.2))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.29
-      vite: 7.1.3(sass-embedded@1.90.0)(sass@1.90.0)
-      vue: 3.5.19
+      vite: 7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0)
+      vue: 3.5.19(typescript@5.9.2)
+
+  '@volar/language-core@2.4.23':
+    dependencies:
+      '@volar/source-map': 2.4.23
+
+  '@volar/source-map@2.4.23': {}
+
+  '@volar/typescript@2.4.23':
+    dependencies:
+      '@volar/language-core': 2.4.23
+      path-browserify: 1.0.1
+      vscode-uri: 3.1.0
 
   '@vue/compiler-core@3.5.19':
     dependencies:
@@ -1155,7 +1392,25 @@ snapshots:
       '@vue/compiler-dom': 3.5.19
       '@vue/shared': 3.5.19
 
+  '@vue/compiler-vue2@2.7.16':
+    dependencies:
+      de-indent: 1.0.2
+      he: 1.2.0
+
   '@vue/devtools-api@6.6.4': {}
+
+  '@vue/language-core@3.0.6(typescript@5.9.2)':
+    dependencies:
+      '@volar/language-core': 2.4.23
+      '@vue/compiler-dom': 3.5.19
+      '@vue/compiler-vue2': 2.7.16
+      '@vue/shared': 3.5.19
+      alien-signals: 2.0.7
+      muggle-string: 0.4.1
+      path-browserify: 1.0.1
+      picomatch: 4.0.3
+    optionalDependencies:
+      typescript: 5.9.2
 
   '@vue/reactivity@3.5.19':
     dependencies:
@@ -1173,13 +1428,15 @@ snapshots:
       '@vue/shared': 3.5.19
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.5.19(vue@3.5.19)':
+  '@vue/server-renderer@3.5.19(vue@3.5.19(typescript@5.9.2))':
     dependencies:
       '@vue/compiler-ssr': 3.5.19
       '@vue/shared': 3.5.19
-      vue: 3.5.19
+      vue: 3.5.19(typescript@5.9.2)
 
   '@vue/shared@3.5.19': {}
+
+  alien-signals@2.0.7: {}
 
   asynckit@0.4.0: {}
 
@@ -1214,6 +1471,8 @@ snapshots:
       delayed-stream: 1.0.0
 
   csstype@3.1.3: {}
+
+  de-indent@1.0.2: {}
 
   delayed-stream@1.0.0: {}
 
@@ -1330,6 +1589,8 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  he@1.2.0: {}
+
   immutable@5.1.3: {}
 
   is-extglob@2.1.1:
@@ -1343,10 +1604,10 @@ snapshots:
   is-number@7.0.0:
     optional: true
 
-  laravel-vite-plugin@0.7.8(vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0)):
+  laravel-vite-plugin@0.7.8(vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0)):
     dependencies:
       picocolors: 1.1.1
-      vite: 7.1.3(sass-embedded@1.90.0)(sass@1.90.0)
+      vite: 7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0)
       vite-plugin-full-reload: 1.2.0
 
   lodash@4.17.21: {}
@@ -1369,10 +1630,14 @@ snapshots:
     dependencies:
       mime-db: 1.52.0
 
+  muggle-string@0.4.1: {}
+
   nanoid@3.3.11: {}
 
   node-addon-api@7.1.1:
     optional: true
+
+  path-browserify@1.0.1: {}
 
   picocolors@1.1.1: {}
 
@@ -1391,6 +1656,8 @@ snapshots:
   quasar@2.18.2: {}
 
   readdirp@4.1.2: {}
+
+  remove-accents@0.5.0: {}
 
   rollup@4.48.0:
     dependencies:
@@ -1542,6 +1809,10 @@ snapshots:
 
   tslib@2.8.1: {}
 
+  typescript@5.9.2: {}
+
+  undici-types@7.10.0: {}
+
   varint@6.0.0: {}
 
   vite-plugin-full-reload@1.2.0:
@@ -1549,7 +1820,7 @@ snapshots:
       picocolors: 1.1.1
       picomatch: 2.3.1
 
-  vite@7.1.3(sass-embedded@1.90.0)(sass@1.90.0):
+  vite@7.1.3(@types/node@24.3.0)(sass-embedded@1.90.0)(sass@1.90.0):
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
@@ -1558,19 +1829,34 @@ snapshots:
       rollup: 4.48.0
       tinyglobby: 0.2.14
     optionalDependencies:
+      '@types/node': 24.3.0
       fsevents: 2.3.3
       sass: 1.90.0
       sass-embedded: 1.90.0
 
-  vue-router@4.5.1(vue@3.5.19):
+  vscode-uri@3.1.0: {}
+
+  vue-demi@0.14.10(vue@3.5.19(typescript@5.9.2)):
+    dependencies:
+      vue: 3.5.19(typescript@5.9.2)
+
+  vue-router@4.5.1(vue@3.5.19(typescript@5.9.2)):
     dependencies:
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.19
+      vue: 3.5.19(typescript@5.9.2)
 
-  vue@3.5.19:
+  vue-tsc@3.0.6(typescript@5.9.2):
+    dependencies:
+      '@volar/typescript': 2.4.23
+      '@vue/language-core': 3.0.6(typescript@5.9.2)
+      typescript: 5.9.2
+
+  vue@3.5.19(typescript@5.9.2):
     dependencies:
       '@vue/compiler-dom': 3.5.19
       '@vue/compiler-sfc': 3.5.19
       '@vue/runtime-dom': 3.5.19
-      '@vue/server-renderer': 3.5.19(vue@3.5.19)
+      '@vue/server-renderer': 3.5.19(vue@3.5.19(typescript@5.9.2))
       '@vue/shared': 3.5.19
+    optionalDependencies:
+      typescript: 5.9.2

@@ -25,7 +25,8 @@ class NotesController extends Controller
         $note = Notes::create([
             'title' => $request->title,
             'content' => $request->content,
-            'state' => $request->state,
+            'state' =>  $request->input('state', NoteStatesEnum::ACTIVE->value),
+            'setted' =>  $request->input('setted', 0),
             'created_at' => now(),
         ]);
         return Response::success($note, 'Nota creada', HttpEnum::Created);

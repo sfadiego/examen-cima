@@ -17,7 +17,7 @@ class NotesFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->sentence(),
+            'title' => $this->faker->text(20),
             'content' => $this->faker->text(100),
             'state' => fake()->randomElement(['active', 'archived']),
             'setted' => fake()->boolean(),
