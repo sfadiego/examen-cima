@@ -7,10 +7,13 @@
         </q-card-section>
         <q-separator class="q-mb-lg" />
         <q-card-section class="q-pt-none">
-            <FormKit v-model="form" id="frm" validation-visibility="submit" type="form" class="row q-gutter-md"
-                @submit="submitHandler">
-                <FormKit validation="required" type="text" name="title" class="col-12" label="Titulo" />
-                <FormKit validation="required" type="text" name="content" class="col-12" label="Contenido" />
+            <FormKit submit-label="Guardar" v-model="form" id="frm" validation-visibility="submit" type="form" class="row q-gutter-md"
+                :incomplete-message="'Por favor corrige los campos marcados.'" @submit="submitHandler">
+                <FormKit validation="required" type="text" name="title" validation-label="Título"
+                    :validation-messages="{ required: 'El título es obligatorio.' }" class="col-12" label="Titulo" />
+                <FormKit validation="required" type="text" name="content" validation-label="Contenido"
+                    :validation-messages="{ required: 'El Contenido es obligatorio.' }" class="col-12"
+                    label="Contenido" />
                 <FormKit type="checkbox" label="Fijar" name="setted" :value="true" />
             </FormKit>
         </q-card-section>
@@ -38,6 +41,7 @@ const form = reactive({
 const selectedNote = inject('selectedNote');
 const isEdit = computed(() => !!form.id)
 const titleModal = computed(() => isEdit.value ? 'Editar nota' : 'Nueva nota')
+const submitLbl = computed(() => isEdit.value ? 'Actualizar' : 'Guardar')
 watch(selectedNote, (item) => {
     if (item) {
         form.id = item.id;
