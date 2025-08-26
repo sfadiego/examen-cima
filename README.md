@@ -18,7 +18,7 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 ## Requisitos
 
 -   PHP ≥ 8.2 y **Composer 2**
--   Node ≥ 18 (LTS) y npm ≥ 9 _(o pnpm ≥ 8)_
+-   Node ≥ 18 (LTS) y pnpm ≥ 8
 -   MySQL/MariaDB o PostgreSQL
 -   Sqllite para pruebas
 
@@ -88,8 +88,17 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 5. Dependencias frontend:
 
     ```bash
-    npm/pnpm install
+    pnpm install
+    o 
+    npm install
     ```
+> si utilizas npm, ejecuta el siguiente comando
+ ```bash
+    rm -rf node_modules
+    rm -f package-lock.json
+    rm -f pnpm-lock.yaml
+    npm install vite@4 @vitejs/plugin-vue@4 --save-dev
+```
 6. crea el archivo database/database.sqlite si no existe
 7. Configurar env para pruebas:
 
@@ -112,7 +121,7 @@ php artisan serve
 **Terminal B – Vite (Vue + Quasar)**
 
 ```bash
-pnpm dev
+pnpm run dev
 ```
 
 Por defecto:
