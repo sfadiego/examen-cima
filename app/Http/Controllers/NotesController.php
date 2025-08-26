@@ -12,14 +12,27 @@ use Illuminate\Support\Facades\Response;
 
 class NotesController extends Controller
 {
+    /**
+     * listado de notas
+     *
+     * @return JsonResponse
+     *
+     */
     public function index(): JsonResponse
     {
-        $notes = Notes::where('state', NoteStatesEnum::ACTIVE)
-            ->orderBy('setted', 'desc')->get();
 
+        $notes = Notes::getActiveNotes();
         return Response::success($notes);
     }
 
+    /**
+     * Guardar nota
+     *
+     * @param NoteStoreRequest $request
+     *
+     * @return JsonResponse
+     *
+     */
     public function store(NoteStoreRequest $request): JsonResponse
     {
         $note = Notes::create([
@@ -32,6 +45,15 @@ class NotesController extends Controller
         return Response::success($note, 'Nota creada', HttpEnum::Created);
     }
 
+    /**
+     * Actualizar nota
+     *
+     * @param Notes $nota
+     * @param NoteUpdateRequest $request
+     *
+     * @return JsonResponse
+     *
+     */
     public function update(Notes $nota, NoteUpdateRequest $request): JsonResponse
     {
         $nota->update([
@@ -45,12 +67,28 @@ class NotesController extends Controller
         return Response::success($nota, 'Nota actualizada');
     }
 
+    /**
+     * Borrar notas
+     *
+     * @param Notes $nota
+     *
+     * @return JsonResponse
+     *
+     */
     public function destroy(Notes $nota): JsonResponse
     {
         $nota->delete();
         return Response::success(null, 'Nota borrada');
     }
 
+    /**
+     * Archivar nota
+     *
+     * @param Notes $nota
+     *
+     * @return JsonResponse
+     *
+     */
     public function archive(Notes $nota): JsonResponse
     {
         $nota->update([
@@ -61,9 +99,15 @@ class NotesController extends Controller
     }
 
 
+    /**
+     * Listado de notas archivadas
+     *
+     * @return JsonResponse
+     *
+     */
     public function archived(): JsonResponse
     {
-        $archivedNotes = Notes::where('state', NoteStatesEnum::ARCHIVED)->get();
+        $archivedNotes = Notes::getArchivedNotes();
         return Response::success($archivedNotes);
     }
 }

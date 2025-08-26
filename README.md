@@ -88,7 +88,7 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 5. Dependencias frontend:
 
     ```bash
-    pnpm install
+    npm/pnpm install
     ```
 6. crea el archivo database/database.sqlite si no existe
 7. Configurar env para pruebas:
