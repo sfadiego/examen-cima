@@ -24,11 +24,11 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 
 ---
 
-## Estructura del repo (típica)
+## Estructura del repositorio
 
 ```
 .
-├─ app/                  # Backend con laravel 9
+├─ app/                  # Backend con laravel
 │  ├─ Http
 │  ├─-- NotesController.php  # Controlador
 ├─ bootstrap/
@@ -36,7 +36,7 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 ├─ database/
 ├─ public/
 ├─ resources/
-│  ├─ js/                # Vue 3 + Quasar (app, router, store)
+│  ├─ js/                # Vue 3 + Quasar (app, router)
 │  └─ css/
 ├─ routes/
 │  ├─ api.php
@@ -45,8 +45,8 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 ├─ vite.config.ts        # Vite + @quasar/vite-plugin
 ├─ package.json
 ├─ composer.json
-└─ .env.example
-└─ .env.testing
+└─ .env.example          # env
+└─ .env.testing.         # env para testing
 ```
 
 ---
@@ -89,6 +89,12 @@ Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en co
 
     ```bash
     pnpm install
+    ```
+6. crea el archivo database/database.sqlite si no existe
+7. Configurar env para pruebas:
+
+    ```bash
+    php artisan test
     ```
 
 ---
