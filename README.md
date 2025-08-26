@@ -189,16 +189,6 @@ php artisan cache:clear && php artisan config:clear && php artisan route:clear
     php artisan test
     ```
 
-### Frontend
-
--   **Vitest + @testing-library/vue**:
-
-    ```bash
-    npm run test
-    ```
-
----
-
 ## Rutas y API
 
 -   Rutas web: `routes/web.php`
