@@ -28,13 +28,13 @@ import { useQueryClient } from '@tanstack/vue-query';
 import { inject, Ref, ref } from 'vue';
 
 
-const props = defineProps < Note > ()
+const props = defineProps<Note>()
 const queryClient = useQueryClient()
 const mutationDelete = serviceDeleteNote(props.id);
 const warningMsg = ref('¿Está seguro de que desea eliminar esta nota?');
 
-const modal = inject < Ref < boolean >> ('modal', ref(false))
-const selectedNote = inject < Ref < Note | null >> ('selectedNote', ref(null))
+const modal = inject<Ref<boolean>>('modal', ref(false))
+const selectedNote = inject<Ref<Note | null>>('selectedNote', ref(null))
 const queryKey = `${props.state !== 'archived' ? 'notes' : 'notes/archived'}`
 const editNote = () => {
     if (selectedNote && modal) {
@@ -75,10 +75,11 @@ const archiveNote = async () => {
         queryClient.invalidateQueries({ queryKey: ['notes'] })
     }
 };
+
 const mutationUnArchive = serviceUpdateNote(props.id);
-const { onSubmit } = handleSubmit < { state: string }, Note> ({
+const { onSubmit } = handleSubmit<{ state: string }, Note>({
     mutateAsync: mutationUnArchive.mutateAsync,
-    onSuccess: (resp) => {
+    onSuccess: () => {
         window.alert("Nota desarchivada");
         queryClient.invalidateQueries({ queryKey: [queryKey] })
     },

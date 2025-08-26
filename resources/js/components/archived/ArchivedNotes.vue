@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue';
+import { computed } from 'vue';
 import { serviceIndexArchivedNotes } from '@/services/serviceNotes';
 import { Note } from '@/types/Note';
 import CardContainer from '../CardContainer.vue';

@@ -50,7 +50,6 @@ watch(selectedNote, (item) => {
 
 const mutationStore = serviceStoreNotes();
 const mutationUpdate = serviceUpdateNote(form.id);
-
 const queryClient = useQueryClient()
 const { onSubmit } = handleSubmit({
     mutateAsync: isEdit.value ? mutationUpdate.mutateAsync : mutationStore.mutateAsync,
@@ -60,7 +59,7 @@ const { onSubmit } = handleSubmit({
         queryClient.invalidateQueries({ queryKey: [`notes`] })
     }, onError: (error) => {
         console.error(error);
-        // window.alert('Error al guardar la nota');
+        window.alert('Error al guardar la nota');
     }
 });
 
