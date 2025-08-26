@@ -122,6 +122,8 @@ php artisan serve
 
 ```bash
 pnpm run dev
+o 
+npm run dev
 ```
 
 Por defecto:
