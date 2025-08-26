@@ -185,15 +185,8 @@ php artisan cache:clear && php artisan config:clear && php artisan route:clear
 ## Rutas y API
 
 -   Rutas web: `routes/web.php`
--   API: `routes/api.php` (prefijo `/api`)
-
----
-
-## Estilo y calidad (opcional)
-
--   Linter: ESLint + Prettier (frontend), Pint (Laravel)
--   Formateo: `npm run lint` / `composer pint`
--   Commits: Conventional Commits
+-   API: `routes/api.php` (`/api/v1/`)
+-   API - Modulos: `routes/module/notes.php` (`/api/v1/notes`)
 
 ---
 
