@@ -1,24 +1,7 @@
 import { axiosApi } from "@/config/axiosConfig";
 import { useMutation, useQuery } from "@tanstack/vue-query";
-import { AxiosInstance, AxiosRequestConfig } from "axios";
-
-interface IAxiosProps {
-    url: string;
-    data?: any;
-    headers?: AxiosRequestConfig["headers"];
-    responseType?: AxiosRequestConfig["responseType"];
-}
-export interface IDELETEProps {
-    url: string;
-    onSuccess?: () => void;
-    onError?: () => void;
-}
-
-export interface IRequestProps {
-    url: string;
-    onSuccess?: () => void;
-    onError?: () => void;
-}
+import { AxiosInstance } from "axios";
+import { IAxiosProps, IDELETEProps, IRequestProps } from "./useApis.interface";
 
 const axiosGET = async (
     axios: AxiosInstance,
@@ -42,7 +25,6 @@ const axiosPOST = async (axios: AxiosInstance, { url, data }: IAxiosProps) => {
 const axiosPUT = async (axios: AxiosInstance, { url, data }: IAxiosProps) => {
     return axios.put(`${url}`, data, {});
 };
-
 
 export function useGET({ url }: { url: string }) {
     return useQuery({

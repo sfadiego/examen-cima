@@ -1,8 +1,8 @@
 <script setup>
 import { computed, provide, ref } from 'vue';
 import { serviceIndexNotes } from '@/services/serviceNotes';
-import CardContainer from './CardContainer.vue';
-import NoteCardForm from './forms/NoteCardForm.vue';
+import CardContainer from '../CardContainer.vue';
+import NoteCardForm from '../forms/NoteCardForm.vue';
 
 const { data, isLoading, isError } = serviceIndexNotes();
 const settedNotes = computed(() => (data.value ?? []).filter(n => n.setted))

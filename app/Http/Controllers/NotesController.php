@@ -15,7 +15,8 @@ class NotesController extends Controller
 {
     public function index(): JsonResponse
     {
-        $notes = Notes::all();
+        $notes = Notes::where('state', NoteStatesEnum::ACTIVE)
+            ->orderBy('setted', 'desc')->get();
 
         return response()->json($notes);
     }
@@ -57,7 +58,7 @@ class NotesController extends Controller
             'state'   => NoteStatesEnum::ARCHIVED->value,
             'updated_at' => now(),
         ]);
-        return Response::success("Nota archivada");
+        return Response::success(null, "Nota archivada");
     }
 
 

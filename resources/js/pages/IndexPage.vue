@@ -1,5 +1,5 @@
 <script setup>
-import ListNotes from '../components/ListNotes.vue';
+import ListNotes from '../components/notes/ListNotes.vue';
 </script>
 
 <template>

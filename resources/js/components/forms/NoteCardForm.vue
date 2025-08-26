@@ -1,12 +1,11 @@
 <template>
     <q-card style="min-width: 350px">
-
-        <q-card-section class="row items-center q-pb-none">
-            <div class="text-h6">Nueva nota</div>
+        <q-card-section class="row items-center q-pb-none q-mb-lg">
+            <div class="text-h6">{{ titleModal }}</div>
             <q-space />
             <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
-
+        <q-separator class="q-mb-lg" />
         <q-card-section class="q-pt-none">
             <FormKit v-model="form" id="frm" validation-visibility="submit" type="form" class="row q-gutter-md"
                 @submit="submitHandler">
@@ -38,7 +37,7 @@ const form = reactive({
 
 const selectedNote = inject('selectedNote');
 const isEdit = computed(() => !!form.id)
-
+const titleModal = computed(() => isEdit.value ? 'Editar nota' : 'Nueva nota')
 watch(selectedNote, (item) => {
     if (item) {
         form.id = item.id;
@@ -49,22 +48,21 @@ watch(selectedNote, (item) => {
 }, { immediate: true })
 
 
-const mutation = serviceStoreNotes();
+const mutationStore = serviceStoreNotes();
 const mutationUpdate = serviceUpdateNote(form.id);
+
 const queryClient = useQueryClient()
 const { onSubmit } = handleSubmit({
-    mutateAsync: isEdit.value ? mutationUpdate.mutateAsync : mutation.mutateAsync,
+    mutateAsync: isEdit.value ? mutationUpdate.mutateAsync : mutationStore.mutateAsync,
     onSuccess: (data) => {
-        const { status, message, data: resp } = data;
         emit('update:close', false)
         if (!isEdit.value) reset('frm')
-
         queryClient.invalidateQueries({ queryKey: [`notes`] })
-    },
+    }, onError: (error) => {
+        console.error(error);
+        // window.alert('Error al guardar la nota');
+    }
 });
 
-const submitHandler = async (data) => {
-    let submitData = { ...data };
-    onSubmit(submitData);
-}
+const submitHandler = async (data) => onSubmit(data);
 </script>

@@ -1,11 +1,11 @@
 import { AxiosResponse } from "axios";
 
-export const handleSubmit = ({
+export const handleSubmit = <Request = any, Response = any>({
     mutateAsync,
     onSuccess,
     onError,
 }: {
-    mutateAsync: (variables: Request) => Promise<AxiosResponse<Response>>;
+    mutateAsync: (data: Request) => Promise<AxiosResponse<any, any>>;
     onSuccess: (data: Response) => void;
     onError?: (data: Error) => void;
 }) => {

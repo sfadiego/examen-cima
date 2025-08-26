@@ -1,5 +1,9 @@
+<script setup>
+import ArchivedNotes from '../components/archived/ArchivedNotes.vue';
+</script>
+
 <template>
     <q-page padding>
-        <h1>Aqui Info</h1>
+        <ArchivedNotes />
     </q-page>
 </template>
