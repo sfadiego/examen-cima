@@ -1,70 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Examen cima: Laravel + Vue 3 (Quasar)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Guía para desplegar y testear la app con **Laravel** y **Vue 3 + Quasar** en con **Vite**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tech Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Backend**: Laravel (PHP ≥ 8.2)
+-   **Frontend**: Vue 3 + Quasar Framework (Vite)
+-   **DB**: MySQL/
+-   **Node**: ≥ 18 LTS
+-   **Gestor paquetes**: pnpm
+-   **Tests**: PHP Unit/Pest (backend), Vitest + Testing Library (frontend)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   PHP ≥ 8.2 y **Composer 2**
+-   Node ≥ 18 (LTS) y npm ≥ 9 _(o pnpm ≥ 8)_
+-   MySQL/MariaDB o PostgreSQL
+-   Sqllite para pruebas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Estructura del repo (típica)
 
-## Laravel Sponsors
+```
+.
+├─ app/                  # Backend con laravel 9
+│  ├─ Http
+│  ├─-- NotesController.php  # Controlador
+├─ bootstrap/
+├─ config/
+├─ database/
+├─ public/
+├─ resources/
+│  ├─ js/                # Vue 3 + Quasar (app, router, store)
+│  └─ css/
+├─ routes/
+│  ├─ api.php
+│  └─ web.php
+├─ tests/                # Tests backend (Pest/PHPUnit)
+├─ vite.config.ts        # Vite + @quasar/vite-plugin
+├─ package.json
+├─ composer.json
+└─ .env.example
+└─ .env.testing
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+## Instalación
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Clonar y preparar entorno:
 
-## Contributing
+    ```bash
+    git clone https://github.com/sfadiego/examen-cima.git
+    cd examen-cima
+    cp .env.example .env
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Dependencias backend:
 
-## Code of Conduct
+    ```bash
+    composer install
+    php artisan key:generate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Configurar base de datos en `.env` (MySQL):
 
-## Security Vulnerabilities
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=app
+    DB_USERNAME=root
+    DB_PASSWORD=secret
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Migraciones y seed:
 
-## License
+    ```bash
+    php artisan migrate --seed
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Dependencias frontend:
 
+    ```bash
+    pnpm install
+    ```
 
-# examen-cima
-desafio tecnico - Full stack - Clon de google Keep
+---
+
+## Desarrollo
+
+En **dos terminales**:
+
+**Terminal A – Laravel**
+
+```bash
+php artisan serve
+```
+
+**Terminal B – Vite (Vue + Quasar)**
+
+```bash
+pnpm dev
+```
+
+Por defecto:
+
+-   Proyecto: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+> la app con Vue se inyecta vía `@vite` y navegas por Laravel (puerto 8000).
+
+---
+
+## Variables de entorno para la applicacion (.env)
+
+```env
+APP_NAME="Examen Cima"
+APP_ENV=local
+APP_URL=http://127.0.0.1:8000
+VITE_API_VERSION=v1
+VITE_API_HOST="http://localhost:8000/api/${VITE_API_VERSION}/"
+```
+
+---
+
+## Variables de entorno para Testear (.env.testing)
+
+```env.testing
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
+
+---
+
+## Scripts
+
+**package.json** (ejemplo):
+
+```json
+{
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "test": "vitest --run"
+    }
+}
+```
+
+**Composer** (comandos comunes):
+
+```bash
+php artisan route:list
+php artisan migrate:fresh --seed
+php artisan cache:clear && php artisan config:clear && php artisan route:clear
+```
+
+---
+
+## Testing
+
+### Backend
+
+-   **Pest/PHPUnit**:
+
+    ```bash
+    php artisan test
+    ```
+
+### Frontend
+
+-   **Vitest + @testing-library/vue**:
+
+    ```bash
+    npm run test
+    ```
+
+---
+
+## Rutas y API
+
+-   Rutas web: `routes/web.php`
+-   API: `routes/api.php` (prefijo `/api`)
+
+---
+
+## Estilo y calidad (opcional)
+
+-   Linter: ESLint + Prettier (frontend), Pint (Laravel)
+-   Formateo: `npm run lint` / `composer pint`
+-   Commits: Conventional Commits
+
+---
+
+## Autor
+
+-   Diego armando silva facio
