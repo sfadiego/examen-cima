@@ -9,7 +9,6 @@ use App\Http\Requests\NoteUpdateRequest;
 use App\Models\Notes;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Response;
-use Nette\Utils\Json;
 
 class NotesController extends Controller
 {
@@ -18,7 +17,7 @@ class NotesController extends Controller
         $notes = Notes::where('state', NoteStatesEnum::ACTIVE)
             ->orderBy('setted', 'desc')->get();
 
-        return response()->json($notes);
+        return Response::success($notes);
     }
 
     public function store(NoteStoreRequest $request): JsonResponse

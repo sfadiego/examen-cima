@@ -5,8 +5,8 @@ import CardContainer from '../CardContainer.vue';
 import NoteCardForm from '../forms/NoteCardForm.vue';
 
 const { data, isLoading, isError } = serviceIndexNotes();
-const settedNotes = computed(() => (data.value ?? []).filter(n => n.setted))
-const unsettedNotes = computed(() => (data.value ?? []).filter(n => !n.setted))
+const settedNotes = computed(() => (data.value?.data ?? []).filter(n => n.setted))
+const unsettedNotes = computed(() => (data.value?.data ?? []).filter(n => !n.setted))
 const modal = ref(false);
 const selectedNote = ref(null)
 
